@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Критерії оцінювання з математики (5–6 класи, онлайн-навчання)</title>
+  <meta name="description" content="Інтерактивний довідник та симулятор критеріїв оцінювання навчальних досягнень з математики для учнів 5-6 класів під час онлайн-навчання.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Hero Section -->
+  <header class="header">
+    <div class="container">
+      <div class="header-top">
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M8 7h8"/>
+              <path d="M8 11h8"/>
+              <path d="M12 15v2"/>
+              <path d="M9 16h6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="badge-tag">Математика • 5–6 класи</div>
+            <h1 class="header-title">Критерії оцінювання</h1>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <button id="themeToggleBtn" class="control-btn" title="Змінити тему (Світла / Темна)">
+            <span class="theme-icon light-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </span>
+            <span class="theme-icon dark-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+            <span class="btn-text">Тема</span>
+          </button>
+
+          <button id="printBtn" class="control-btn" title="Друк пам'ятки або збереження в PDF">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span class="btn-text">Друк / PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Subtitle & Description -->
+      <div class="hero-desc-box">
+        <p class="hero-desc">
+          <strong>Оцінювання (1–12 балів)</strong> враховує активність на синхронних онлайн-уроках, виконання завдань на навчальній платформі, рівень самостійності та своєчасність здачі робіт.
+        </p>
+      </div>
+
+      <!-- Quick Level Pills -->
+      <nav class="levels-nav" aria-label="Рівні навчальних досягнень">
+        <button class="level-nav-card active" data-level="all">
+          <div class="level-indicator level-all-indicator"></div>
+          <div class="level-card-info">
+            <span class="level-num-range">1–12</span>
+            <span class="level-name">Всі рівні</span>
+          </div>
+        </button>
+
+        <button class="level-nav-card" data-level="initial">
+          <div class="level-indicator level-initial-indicator"></div>
+          <div class="level-card-info">
+            <span class="level-num-range">1–3 бали</span>
+            <span class="level-name">Початковий</span>
+          </div>
+        </button>
+
+        <button class="level-nav-card" data-level="average">
+          <div class="level-indicator level-average-indicator"></div>
+          <div class="level-card-info">
+            <span class="level-num-range">4–6 балів</span>
+            <span class="level-name">Середній</span>
+          </div>
+        </button>
+
+        <button class="level-nav-card" data-level="sufficient">
+          <div class="level-indicator level-sufficient-indicator"></div>
+          <div class="level-card-info">
+            <span class="level-num-range">7–9 балів</span>
+            <span class="level-name">Достатній</span>
+          </div>
+        </button>
+
+        <button class="level-nav-card" data-level="high">
+          <div class="level-indicator level-high-indicator"></div>
+          <div class="level-card-info">
+            <span class="level-num-range">10–12 балів</span>
+            <span class="level-name">Високий</span>
+          </div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Interactive Score Step-Bar (1-12) -->
+      <section class="score-stepper-section" aria-label="Шкала балів 1-12">
+        <div class="section-subhead">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Швидка шкала балів
+          </h2>
+          <span class="section-hint">Натисніть на будь-який бал, щоб миттєво перейти до його опису</span>
+        </div>
+
+        <div class="score-buttons-grid" id="scoreButtonsGrid">
+          <!-- Dynamically generated or static 1-12 buttons -->
+          <button class="score-step-btn" data-score="1" data-level="initial">1</button>
+          <button class="score-step-btn" data-score="2" data-level="initial">2</button>
+          <button class="score-step-btn" data-score="3" data-level="initial">3</button>
+          <button class="score-step-btn" data-score="4" data-level="average">4</button>
+          <button class="score-step-btn" data-score="5" data-level="average">5</button>
+          <button class="score-step-btn" data-score="6" data-level="average">6</button>
+          <button class="score-step-btn" data-score="7" data-level="sufficient">7</button>
+          <button class="score-step-btn" data-score="8" data-level="sufficient">8</button>
+          <button class="score-step-btn" data-score="9" data-level="sufficient">9</button>
+          <button class="score-step-btn" data-score="10" data-level="high">10</button>
+          <button class="score-step-btn" data-score="11" data-level="high">11</button>
+          <button class="score-step-btn" data-score="12" data-level="high">12</button>
+        </div>
+      </section>
+
+      <!-- Search and Filter Bar -->
+      <section class="filter-search-section">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="criteriaSearchInput" placeholder="Швидкий пошук (наприклад: платформа, помилки, рівняння, олімпіадні...)" aria-label="Пошук за критеріями">
+          <button id="clearSearchBtn" class="clear-search-btn" title="Очистити пошук" style="display: none;">✕</button>
+        </div>
+
+        <div class="quick-tags" id="quickTags">
+          <span class="tags-label">Теги:</span>
+          <button class="tag-chip" data-query="платформ">💻 Платформа</button>
+          <button class="tag-chip" data-query="урок">🎙️ Активність на уроці</button>
+          <button class="tag-chip" data-query="помилк">⚠️ Помилки</button>
+          <button class="tag-chip" data-query="самостійн">🎯 Самостійність</button>
+          <button class="tag-chip" data-query="рівнян">📐 Рівняння та задачі</button>
+        </div>
+      </section>
+
+      <!-- Main Criteria Cards List -->
+      <section class="criteria-container" id="criteriaContainer">
+        <!-- Level 1: Початковий -->
+        <div class="level-group" data-level-group="initial" id="level-initial">
+          <div class="level-group-header initial-header">
+            <div class="level-title-wrap">
+              <span class="level-badge initial-badge">1–3 бали</span>
+              <h3 class="level-group-title">Початковий рівень</h3>
+            </div>
+            <p class="level-summary">Учень потребує постійної допомоги вчителя, розпізнає базові елементи, виконує лише найпростіші дії за зразком.</p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- 1 бал -->
+            <article class="criterion-card initial-card" data-score="1" id="score-card-1">
+              <div class="card-header">
+                <div class="card-score-badge">1 бал</div>
+                <div class="card-status-pill">Лише з підказкою</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Присутній(-ня) на занятті, але пасивний(-на); розпізнає лише окремі символи чи фігури; завдання виконує виключно за прямої підказки вчителя.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">🎙️</span>
+                    <span class="b-text"><strong>Урок:</strong> пасивна присутність, мовчить або не бере участі</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">📐</span>
+                    <span class="b-text"><strong>Знання:</strong> лише окремі символи, цифри чи найпростіші фігури</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🤝</span>
+                    <span class="b-text"><strong>Самостійність:</strong> робота лише за прямої покрокової підказки</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="2">
+                  <span>Як отримати 2 бали?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 2 бали -->
+            <article class="criterion-card initial-card" data-score="2" id="score-card-2">
+              <div class="card-header">
+                <div class="card-score-badge">2 бали</div>
+                <div class="card-status-pill">За зразком</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Відтворює незначну частину правил; виконує найпростіші дії лише за зразком; у роботах на платформі — грубі системні помилки.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">📖</span>
+                    <span class="b-text"><strong>Теорія:</strong> пам'ятає незначну частину правил або термінів</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">✍️</span>
+                    <span class="b-text"><strong>Практика:</strong> копіює найпростіші дії суворо за зразком</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">💻</span>
+                    <span class="b-text"><strong>Платформа:</strong> є спроби, але містить грубі системні похибки</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="3">
+                  <span>Як отримати 3 бали?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 3 бали -->
+            <article class="criterion-card initial-card" data-score="3" id="score-card-3">
+              <div class="card-header">
+                <div class="card-score-badge">3 бали</div>
+                <div class="card-status-pill">На одну дію</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Знає окремі формули чи правила; розв’язує найпростіші вправи на одну дію з постійною допомогою; на платформі виконано менше третини завдань.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">📖</span>
+                    <span class="b-text"><strong>Формули:</strong> пригадує базові формули чи окремі правила</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🎯</span>
+                    <span class="b-text"><strong>Задачі:</strong> вправи на 1 дію, але з постійною підтримкою</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">💻</span>
+                    <span class="b-text"><strong>Платформа:</strong> виконано менше 30% (третини) завдань</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="4">
+                  <span>Як перейти у Середній рівень (4 б.)?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Level 2: Середній -->
+        <div class="level-group" data-level-group="average" id="level-average">
+          <div class="level-group-header average-header">
+            <div class="level-title-wrap">
+              <span class="level-badge average-badge">4–6 балів</span>
+              <h3 class="level-group-title">Середній рівень</h3>
+            </div>
+            <p class="level-summary">Учень знає базові алгоритми, виконує стандартні обчислення та прості рівняння, проте трапляються помилки або складнощі з поясненням.</p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- 4 бали -->
+            <article class="criterion-card average-card" data-score="4" id="score-card-4">
+              <div class="card-header">
+                <div class="card-score-badge">4 бали</div>
+                <div class="card-status-pill">Базові алгоритми</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Знає базові алгоритми; розв'язує типові вправи за навідними запитаннями; завдання на платформі виконує нерегулярно або з частими помилками.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">⚙️</span>
+                    <span class="b-text"><strong>Алгоритми:</strong> знайомий із базовим порядком дій</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">❓</span>
+                    <span class="b-text"><strong>Розв'язання:</strong> потрібні навідні запитання вчителя</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">💻</span>
+                    <span class="b-text"><strong>Платформа:</strong> нерегулярне здавання, часті помилки</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="5">
+                  <span>Як отримати 5 балів?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 5 балів -->
+            <article class="criterion-card average-card" data-score="5" id="score-card-5">
+              <div class="card-header">
+                <div class="card-score-badge">5 балів</div>
+                <div class="card-status-pill">1–2 дії за алгоритмом</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Виконує вправи на 1–2 дії за вивченим алгоритмом; правильно відповідає на уроці, але складно пояснює власні міркування; у тестах припускається помилок через неуважність.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">🔢</span>
+                    <span class="b-text"><strong>Завдання:</strong> впевнено рахує на 1–2 дії за алгоритмом</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🎙️</span>
+                    <span class="b-text"><strong>Урок:</strong> відповіді правильні, але важко пояснити хід думки</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">⚡</span>
+                    <span class="b-text"><strong>Тести:</strong> типові прикрі помилки через неуважність</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="6">
+                  <span>Як отримати 6 балів?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 6 балів -->
+            <article class="criterion-card average-card" data-score="6" id="score-card-6">
+              <div class="card-header">
+                <div class="card-score-badge">6 балів</div>
+                <div class="card-status-pill">Стандартні рівняння</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Впевнено виконує стандартні обчислення та прості рівняння; коротко пояснює кроки; роботи здає вчасно, але з незначними похибками.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">📐</span>
+                    <span class="b-text"><strong>Вміння:</strong> стандартні обчислення та прості рівняння</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">💬</span>
+                    <span class="b-text"><strong>Пояснення:</strong> лаконічно коментує власні кроки</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">⏰</span>
+                    <span class="b-text"><strong>Дедлайни:</strong> роботи здаються вчасно, є незначні огріхи</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="7">
+                  <span>Як перейти у Достатній рівень (7 б.)?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Level 3: Достатній -->
+        <div class="level-group" data-level-group="sufficient" id="level-sufficient">
+          <div class="level-group-header sufficient-header">
+            <div class="level-title-wrap">
+              <span class="level-badge sufficient-badge">7–9 балів</span>
+              <h3 class="level-group-title">Достатній рівень</h3>
+            </div>
+            <p class="level-summary">Учень самостійно розв'язує задачі на кілька дій, активно працює на уроці, аргументує рішення та вчасно здає якісні роботи.</p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- 7 балів -->
+            <article class="criterion-card sufficient-card" data-score="7" id="score-card-7">
+              <div class="card-header">
+                <div class="card-score-badge">7 балів</div>
+                <div class="card-status-pill">Кілька дій & активність</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Самостійно розв'язує задачі на кілька дій; бере активну участь в уроці; самостійно виправляє помилки за вказівкою вчителя; письмові роботи оформлені послідовно.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">🧩</span>
+                    <span class="b-text"><strong>Задачі:</strong> самостійне розв'язання на кілька дій</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🙋</span>
+                    <span class="b-text"><strong>Урок:</strong> активна участь, робота в чаті та голосом</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">✏️</span>
+                    <span class="b-text"><strong>Самокорекція:</strong> бачить і виправляє помилку за вказівкою</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="8">
+                  <span>Як отримати 8 балів?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 8 балів -->
+            <article class="criterion-card sufficient-card" data-score="8" id="score-card-8">
+              <div class="card-header">
+                <div class="card-score-badge">8 балів</div>
+                <div class="card-status-pill">Вільна аргументація</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Без труднощів розв'язує задачі на 2–3 дії; вільно аргументує хід дій голосом або письмово під час заняття; самостійні роботи виконує майже безпомилково.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">🚀</span>
+                    <span class="b-text"><strong>Складність:</strong> вільне розв'язання на 2–3 дії без затримок</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🗣️</span>
+                    <span class="b-text"><strong>Мовлення:</strong> вільна чітка аргументація голосом або в чаті</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🎯</span>
+                    <span class="b-text"><strong>Роботи:</strong> самостійні виконуються практично без помилок</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="9">
+                  <span>Як отримати 9 балів?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 9 балів -->
+            <article class="criterion-card sufficient-card" data-score="9" id="score-card-9">
+              <div class="card-header">
+                <div class="card-score-badge">9 балів</div>
+                <div class="card-status-pill">Грамотність і терміни</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Вільно володіє матеріалом програми; грамотно використовує математичні терміни; завдання на платформі завантажує вчасно, самостійно та якісно.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">📚</span>
+                    <span class="b-text"><strong>Програма:</strong> повне вільне володіння навчальним матеріалом</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🔤</span>
+                    <span class="b-text"><strong>Термінологія:</strong> точне і грамотне використання мат. мови</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🌟</span>
+                    <span class="b-text"><strong>Платформа:</strong> вчасно, повністю самостійно і якісно оформлено</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="10">
+                  <span>Як перейти у Високий рівень (10 б.)?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Level 4: Високий -->
+        <div class="level-group" data-level-group="high" id="level-high">
+          <div class="level-group-header high-header">
+            <div class="level-title-wrap">
+              <span class="level-badge high-badge">10–12 балів</span>
+              <h3 class="level-group-title">Високий рівень</h3>
+            </div>
+            <p class="level-summary">Глибоке розуміння теорії, безпомилкове розв'язування складних, нестандартних та олімпіадних задач різними методами, творчі проєкти.</p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- 10 балів -->
+            <article class="criterion-card high-card" data-score="10" id="score-card-10">
+              <div class="card-header">
+                <div class="card-score-badge">10 балів</div>
+                <div class="card-status-pill">Глибоке розуміння</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Глибоко розуміє теоретичний матеріал; безпомилково розв'язує складні задачі з чітким обґрунтуванням кожного кроку; стабільно активний(-на) на заняттях.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">🧠</span>
+                    <span class="b-text"><strong>Теорія:</strong> глибоке розуміння суті формул та теорем</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🎯</span>
+                    <span class="b-text"><strong>Складні задачі:</strong> безпомилково, з повним обґрунтуванням дій</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">📈</span>
+                    <span class="b-text"><strong>Урок:</strong> постійна продуктивна активність на кожному занятті</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="11">
+                  <span>Як отримати 11 балів?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 11 балів -->
+            <article class="criterion-card high-card" data-score="11" id="score-card-11">
+              <div class="card-header">
+                <div class="card-score-badge">11 балів</div>
+                <div class="card-status-pill">Нестандартні методи</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Знаходить раціональні та нестандартні способи розв'язання; успішно виконує завдання підвищеної складності (олімпіадні, логічні); може пояснити розв'язок однокласникам.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">💡</span>
+                    <span class="b-text"><strong>Методи:</strong> шукає найбільш раціональний і швидкий спосіб</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🏆</span>
+                    <span class="b-text"><strong>Олімпіади:</strong> задачі підвищеної складності та на логіку</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">👥</span>
+                    <span class="b-text"><strong>Лідерство:</strong> може пояснити складну ідею однокласникам</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="level-up-btn" data-target="12">
+                  <span>Як отримати максимальні 12 балів?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- 12 балів -->
+            <article class="criterion-card high-card" data-score="12" id="score-card-12">
+              <div class="card-header">
+                <div class="card-score-badge">12 балів</div>
+                <div class="card-status-pill">Майстерність & творчість</div>
+              </div>
+              <div class="card-body">
+                <p class="criterion-text">
+                  Проявляє системні знання та особливий інтерес до предмета; розв'язує задачі різними методами; успішно виконує творчі завдання (мініпроєкти); зразково дотримується академічної доброчесності.
+                </p>
+                <div class="criterion-breakdown">
+                  <div class="breakdown-item">
+                    <span class="b-icon">✨</span>
+                    <span class="b-text"><strong>Інтерес:</strong> системні знання, вихід за межі стандартного підручника</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🎨</span>
+                    <span class="b-text"><strong>Творчість:</strong> авторські проєкти, дослідження, кілька варіантів розв'язку</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="b-icon">🛡️</span>
+                    <span class="b-text"><strong>Доброчесність:</strong> зразкова самостійність та захист робіт</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="top-achievement-tag">
+                  <span>👑 Найвищий ступінь успішності!</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- No search results placeholder -->
+        <div id="noResultsMessage" class="no-results-box" style="display: none;">
+          <div class="no-results-icon">🔍</div>
+          <h3>Нічого не знайдено</h3>
+          <p>Спробуйте змінити пошуковий запит або скинути фільтри.</p>
+          <button id="resetSearchBtn" class="primary-action-btn">Скинути пошук</button>
+        </div>
+      </section>
+
+      <!-- Interactive Simulator: "Оціни свій орієнтовний бал" -->
+      <section class="simulator-section" id="simulator">
+        <div class="simulator-header">
+          <div class="sim-badge">Інтерактивний помічник</div>
+          <h2 class="sim-title">Симулятор самооцінювання: «Який у мене бал?»</h2>
+          <p class="sim-desc">
+            Оберіть варіанти, які найкраще описують ваше навчання за 4 основними критеріями, та дізнайтеся орієнтовний результат і поради, як його покращити!
+          </p>
+        </div>
+
+        <div class="simulator-body">
+          <form id="simulatorForm" class="sim-questions-list">
+            <!-- Питання 1: Активність на онлайн-уроці -->
+            <div class="question-card">
+              <div class="q-header">
+                <span class="q-num">1</span>
+                <div>
+                  <h4 class="q-title">Активність на синхронних онлайн-уроках</h4>
+                  <p class="q-sub">Робота з мікрофоном, в чаті або на віртуальній дошці</p>
+                </div>
+              </div>
+              <div class="q-options">
+                <label class="radio-option">
+                  <input type="radio" name="activity" value="1">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Присутній(-ня), але майже не відповідаю (пасивна участь)</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="activity" value="2">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Відповідаю, коли запитує вчитель, або за навідними запитаннями</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="activity" value="3" checked>
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Активно беру участь, пишу в чаті/на дошці, коментую та виправляю помилки</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="activity" value="4">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Стабільно лідер на уроці: вільно аргументую, допомагаю однокласникам</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Питання 2: Платформа та ДЗ -->
+            <div class="question-card">
+              <div class="q-header">
+                <span class="q-num">2</span>
+                <div>
+                  <h4 class="q-title">Виконання завдань на платформі та дедлайни</h4>
+                  <p class="q-sub">Регулярність, якість оформлення та своєчасність</p>
+                </div>
+              </div>
+              <div class="q-options">
+                <label class="radio-option">
+                  <input type="radio" name="platform" value="1">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Здано менше третини завдань або є грубі системні помилки</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="platform" value="2">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Нерегулярно або здаю вчасно, але з частими помилками через неуважність</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="platform" value="3" checked>
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Завдання завантажую вчасно, послідовно оформлено, майже без помилок</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="platform" value="4">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Зразково, бездоганна якість, успішне виконання творчих та додаткових завдань</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Питання 3: Складність задач -->
+            <div class="question-card">
+              <div class="q-header">
+                <span class="q-num">3</span>
+                <div>
+                  <h4 class="q-title">Складність задач, які вдається розв'язувати</h4>
+                  <p class="q-sub">Рівень самостійної математичної практики</p>
+                </div>
+              </div>
+              <div class="q-options">
+                <label class="radio-option">
+                  <input type="radio" name="tasks" value="1">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Найпростіші вправи на 1 дію або лише за зразком</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="tasks" value="2">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Стандартні обчислення та прості рівняння на 1–2 дії за алгоритмом</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="tasks" value="3" checked>
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Задачі на 2–3 та кілька дій, самостійний пошук плану розв'язання</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="tasks" value="4">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Складні, олімпіадні та логічні задачі, розв'язання різними способами</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Питання 4: Академічна доброчесність та пояснення -->
+            <div class="question-card">
+              <div class="q-header">
+                <span class="q-num">4</span>
+                <div>
+                  <h4 class="q-title">Самостійність та захист своїх розв'язків</h4>
+                  <p class="q-sub">Здатність прокоментувати та пояснити свої кроки</p>
+                </div>
+              </div>
+              <div class="q-options">
+                <label class="radio-option">
+                  <input type="radio" name="integrity" value="1">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Потребую постійної прямої підказки або допомоги батьків</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="integrity" value="2">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Відповідь отримую правильно, але пояснити міркування вголос важко</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="integrity" value="3" checked>
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Працюю самостійно, вільно коментую свої кроки та формули під час опитування</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="integrity" value="4">
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Чітке обґрунтування кожного кроку, можу легко розв'язати аналогічну задачу онлайн</span>
+                </label>
+              </div>
+            </div>
+          </form>
+
+          <!-- Simulator Result Box -->
+          <div class="sim-result-box" id="simResultBox">
+            <div class="sim-result-card">
+              <div class="result-top">
+                <span class="result-badge-label">Ваш орієнтовний рівень</span>
+                <div class="result-score-highlight" id="resScoreText">7–8 балів</div>
+                <div class="result-level-title" id="resLevelTitle">Достатній рівень</div>
+              </div>
+
+              <div class="result-meter-container">
+                <div class="result-meter-bar">
+                  <div class="result-meter-fill" id="resMeterFill" style="width: 65%;"></div>
+                </div>
+                <div class="meter-labels">
+                  <span>1</span>
+                  <span>4</span>
+                  <span>7</span>
+                  <span>10</span>
+                  <span>12</span>
+                </div>
+              </div>
+
+              <div class="result-advice-block">
+                <div class="advice-head">
+                  <span class="advice-icon">💡</span>
+                  <strong>Порада для підвищення балу:</strong>
+                </div>
+                <p id="resAdviceText" class="advice-text">
+                  Щоб перейти на 9–10 балів, спробуйте самостійно розв'язувати задачі підвищеної складності, використовуйте точну математичну термінологію та аргументуйте кожну дію.
+                </p>
+              </div>
+
+              <button class="primary-action-btn view-details-btn" id="simScrollToLevelBtn">
+                Переглянути критерії цього рівня
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Difference / Transition Explorer ("Як піднятися на наступний рівень") -->
+      <section class="transitions-section">
+        <div class="section-subhead">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+            Сходинки зростання: ключові переходи між рівнями
+          </h2>
+          <span class="section-hint">Що саме відрізняє один рівень від іншого під час онлайн-навчання</span>
+        </div>
+
+        <div class="transitions-grid">
+          <div class="transition-card">
+            <div class="t-badge from-initial">3 б. ➔ 4 б.</div>
+            <h4>Перехід: Початковий ➔ Середній</h4>
+            <p><strong>Головний крок:</strong> Від виконання завдань <em>виключно за постійної прямої підказки</em> учень переходить до <em>знання базових алгоритмів</em> та вміння розв'язувати типові вправи хоча б за навідними запитаннями.</p>
+          </div>
+
+          <div class="transition-card">
+            <div class="t-badge from-average">6 б. ➔ 7 б.</div>
+            <h4>Перехід: Середній ➔ Достатній</h4>
+            <p><strong>Головний крок:</strong> Від простого копіювання формул та стандартних дій — до <em>самостійного розв'язання задач на кілька дій</em>, активної участі в уроці та самостійного виправлення власних помилок.</p>
+          </div>
+
+          <div class="transition-card">
+            <div class="t-badge from-sufficient">9 б. ➔ 10 б.</div>
+            <h4>Перехід: Достатній ➔ Високий</h4>
+            <p><strong>Головний крок:</strong> Від впевненого знання шкільної програми — до <em>глибокого теоретичного розуміння</em>, безпомилкового розв'язку <em>складних задач</em> із вичерпним обґрунтуванням кожного кроку.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Online Format Requirements Section -->
+      <section class="online-rules-section" id="onlineRules">
+        <div class="rules-header">
+          <div class="badge-tag">Важливо для дистанційного навчання</div>
+          <h2 class="rules-main-title">Вимоги та специфіка онлайн-формату</h2>
+          <p class="rules-main-sub">Три непорушні принципи об'єктивного оцінювання в онлайн-школі</p>
+        </div>
+
+        <div class="rules-grid">
+          <!-- Card 1 -->
+          <div class="rule-box">
+            <div class="rule-icon-circle blue-glow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="rule-title">Робота на уроці</h3>
+            <p class="rule-text">
+              Враховується як <strong>усна відповідь</strong> за ввімкненим мікрофоном, так і <strong>письмова робота в чаті</strong> чи активна взаємодія на <strong>віртуальній дошці</strong> (розв'язування спільних прикладів у реальному часі).
+            </p>
+            <div class="rule-tip">Порада: навіть коротка правильна відповідь у чаті фіксується як активність!</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="rule-box">
+            <div class="rule-icon-circle purple-glow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="rule-title">Академічна доброчесність</h3>
+            <p class="rule-text">
+              Роботи на навчальній платформі мають виконуватися <strong>виключно самостійно</strong>. Учитель має право попросити учня <strong>прокоментувати свій розв'язок</strong> онлайн або виконати аналогічне завдання в реальному часі.
+            </p>
+            <div class="rule-tip">Порада: головне — розуміти кожен записаний крок, а не списати готове!</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="rule-box">
+            <div class="rule-icon-circle amber-glow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="rule-title">Обов'язковість робіт</h3>
+            <p class="rule-text">
+              <strong>Самостійні</strong>, <strong>тематичні</strong> та <strong>семестрова контрольні роботи</strong> є обов'язковими для офіційної семестрової та річної атестації учня з математики.
+            </p>
+            <div class="rule-tip">Порада: у разі пропуску через поважну причину обов'язково узгодьте термін перездачі!</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal / Level Up Quick Drawer -->
+      <div class="modal-overlay" id="levelUpModal" style="display: none;">
+        <div class="modal-dialog">
+          <div class="modal-head">
+            <h3 id="modalTitle">Сходинка до вищого балу</h3>
+            <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <p class="footer-copy"><strong>Критерії оцінювання з математики</strong> • 5–6 класи (Онлайн-навчання)</p>
+        <p class="footer-sub">Відповідно до державних вимог та критеріїв оцінювання навчальних досягнень учнів</p>
+      </div>
+      <div class="footer-right">
+        <button id="backToTopBtn" class="control-btn" title="Вгору">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          <span class="btn-text">Нагору</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
