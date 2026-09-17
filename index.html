@@ -11,60 +11,63 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header / Hero Section -->
+  <!-- Sticky Header Bar -->
   <header class="header">
-    <div class="container">
-      <div class="header-top">
-        <div class="brand">
-          <div class="brand-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-              <path d="M8 7h8"/>
-              <path d="M8 11h8"/>
-              <path d="M12 15v2"/>
-              <path d="M9 16h6"/>
-            </svg>
-          </div>
-          <div>
-            <div class="badge-tag">Математика • 5–6 класи</div>
-            <h1 class="header-title">Критерії оцінювання</h1>
-          </div>
+    <div class="container header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+            <path d="M8 7h8"/>
+            <path d="M8 11h8"/>
+            <path d="M12 15v2"/>
+            <path d="M9 16h6"/>
+          </svg>
         </div>
-
-        <div class="header-controls">
-          <button id="themeToggleBtn" class="control-btn" title="Змінити тему (Світла / Темна)">
-            <span class="theme-icon light-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </span>
-            <span class="theme-icon dark-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            </span>
-            <span class="btn-text">Тема</span>
-          </button>
-
-          <button id="printBtn" class="control-btn" title="Друк пам'ятки або збереження в PDF">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 6 2 18 2 18 9"></polyline>
-              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-              <rect x="6" y="14" width="12" height="8"></rect>
-            </svg>
-            <span class="btn-text">Друк / PDF</span>
-          </button>
+        <div class="brand-info">
+          <div class="badge-tag">Математика • 5–6 класи</div>
+          <h1 class="header-title">Критерії оцінювання</h1>
         </div>
       </div>
 
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="control-btn" title="Змінити тему (Світла / Темна)" aria-label="Змінити тему оформлення">
+          <span class="theme-icon light-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon dark-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="btn-text">Тема</span>
+        </button>
+
+        <button id="printBtn" class="control-btn" title="Друк пам'ятки або збереження в PDF" aria-label="Друкувати або зберегти в PDF">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span class="btn-text">Друк / PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" aria-label="Опис та рівні оцінювання">
+    <div class="container">
       <!-- Hero Subtitle & Description -->
       <div class="hero-desc-box">
         <p class="hero-desc">
@@ -115,7 +118,7 @@
         </button>
       </nav>
     </div>
-  </header>
+  </section>
 
   <main class="main-content">
     <div class="container">
@@ -146,27 +149,6 @@
           <button class="score-step-btn" data-score="10" data-level="high">10</button>
           <button class="score-step-btn" data-score="11" data-level="high">11</button>
           <button class="score-step-btn" data-score="12" data-level="high">12</button>
-        </div>
-      </section>
-
-      <!-- Search and Filter Bar -->
-      <section class="filter-search-section">
-        <div class="search-box">
-          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="criteriaSearchInput" placeholder="Швидкий пошук (наприклад: платформа, помилки, рівняння, олімпіадні...)" aria-label="Пошук за критеріями">
-          <button id="clearSearchBtn" class="clear-search-btn" title="Очистити пошук" style="display: none;">✕</button>
-        </div>
-
-        <div class="quick-tags" id="quickTags">
-          <span class="tags-label">Теги:</span>
-          <button class="tag-chip" data-query="платформ">💻 Платформа</button>
-          <button class="tag-chip" data-query="урок">🎙️ Активність на уроці</button>
-          <button class="tag-chip" data-query="помилк">⚠️ Помилки</button>
-          <button class="tag-chip" data-query="самостійн">🎯 Самостійність</button>
-          <button class="tag-chip" data-query="рівнян">📐 Рівняння та задачі</button>
         </div>
       </section>
 
@@ -617,14 +599,6 @@
               </div>
             </article>
           </div>
-        </div>
-
-        <!-- No search results placeholder -->
-        <div id="noResultsMessage" class="no-results-box" style="display: none;">
-          <div class="no-results-icon">🔍</div>
-          <h3>Нічого не знайдено</h3>
-          <p>Спробуйте змінити пошуковий запит або скинути фільтри.</p>
-          <button id="resetSearchBtn" class="primary-action-btn">Скинути пошук</button>
         </div>
       </section>
 

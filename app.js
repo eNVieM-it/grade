@@ -196,6 +196,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Smooth Scroll Helper (Prevents any header overlap) ---
+  function scrollToElement(el, offset = 16) {
+    if (!el) return;
+    const header = document.querySelector('.header');
+    let headerOffset = 0;
+    if (header) {
+      const pos = window.getComputedStyle(header).position;
+      if (pos === 'sticky' || pos === 'fixed') {
+        headerOffset = header.offsetHeight;
+      }
+    }
+    const targetY = el.getBoundingClientRect().top + window.scrollY - headerOffset - offset;
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: 'smooth'
+    });
+  }
+
   function filterLevelGroups(level) {
     if (level === 'all') {
       levelGroups.forEach(group => group.style.display = 'flex');
@@ -204,10 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const groupLevel = group.getAttribute('data-level-group');
         group.style.display = (groupLevel === level) ? 'flex' : 'none';
       });
-      // Smoothly scroll to the filtered level group
+      // Smoothly scroll to the filtered level group without menu overlap
       const targetGroup = document.querySelector(`.level-group[data-level-group="${level}"]`);
       if (targetGroup) {
-        targetGroup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollToElement(targetGroup, 16);
       }
     }
   }
@@ -231,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
           levelGroups.forEach(group => group.style.display = 'flex');
         }
 
-        // Highlight and scroll into view
+        // Highlight and scroll smoothly into view
         highlightCard(card);
       }
     });
@@ -240,88 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function highlightCard(card) {
     document.querySelectorAll('.criterion-card').forEach(c => c.classList.remove('highlighted'));
     card.classList.add('highlighted');
-    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    scrollToElement(card, 20);
 
     setTimeout(() => {
       card.classList.remove('highlighted');
     }, 2400);
-  }
-
-  // --- Live Search & Quick Filter Tags ---
-  const searchInput = document.getElementById('criteriaSearchInput');
-  const clearSearchBtn = document.getElementById('clearSearchBtn');
-  const quickTags = document.querySelectorAll('.tag-chip');
-  const allCards = document.querySelectorAll('.criterion-card');
-  const noResultsBox = document.getElementById('noResultsMessage');
-  const resetSearchBtn = document.getElementById('resetSearchBtn');
-
-  if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.trim().toLowerCase();
-      performSearch(query);
-    });
-  }
-
-  if (clearSearchBtn) {
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      performSearch('');
-      searchInput.focus();
-    });
-  }
-
-  if (resetSearchBtn) {
-    resetSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      quickTags.forEach(t => t.classList.remove('active'));
-      performSearch('');
-    });
-  }
-
-  quickTags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      const query = tag.getAttribute('data-query');
-      if (tag.classList.contains('active')) {
-        tag.classList.remove('active');
-        searchInput.value = '';
-        performSearch('');
-      } else {
-        quickTags.forEach(t => t.classList.remove('active'));
-        tag.classList.add('active');
-        searchInput.value = query;
-        performSearch(query);
-      }
-    });
-  });
-
-  function performSearch(query) {
-    if (clearSearchBtn) {
-      clearSearchBtn.style.display = query.length > 0 ? 'block' : 'none';
-    }
-
-    let matchCount = 0;
-
-    levelGroups.forEach(group => {
-      let groupHasMatches = false;
-      const cardsInGroup = group.querySelectorAll('.criterion-card');
-
-      cardsInGroup.forEach(card => {
-        const textContent = card.innerText.toLowerCase();
-        if (query === '' || textContent.includes(query)) {
-          card.style.display = 'flex';
-          groupHasMatches = true;
-          matchCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      group.style.display = groupHasMatches ? 'flex' : 'none';
-    });
-
-    if (noResultsBox) {
-      noResultsBox.style.display = matchCount === 0 ? 'flex' : 'none';
-    }
   }
 
   // --- Modal Dialog for Level-Up Advice ---
@@ -484,7 +425,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const matchingNav = document.querySelector(`.level-nav-card[data-level="${targetGroup}"]`);
         if (matchingNav) matchingNav.classList.add('active');
         filterLevelGroups(targetGroup);
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   }
